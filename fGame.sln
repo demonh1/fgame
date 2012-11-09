@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fGame", "fGame\fGame.csproj", "{AED5FA7E-C598-4AB3-B962-B7294308A14D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{492BEF1A-2DD2-4CA4-98C3-9778A7F0E04E}"
+	ProjectSection(SolutionItems) = preProject
+		GameClass.cs = GameClass.cs
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AED5FA7E-C598-4AB3-B962-B7294308A14D}.Debug|x86.ActiveCfg = Debug|x86
+		{AED5FA7E-C598-4AB3-B962-B7294308A14D}.Debug|x86.Build.0 = Debug|x86
+		{AED5FA7E-C598-4AB3-B962-B7294308A14D}.Release|x86.ActiveCfg = Release|x86
+		{AED5FA7E-C598-4AB3-B962-B7294308A14D}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

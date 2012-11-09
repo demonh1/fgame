@@ -1,0 +1,9 @@
+E:\Projects\MyProjects\Sharp\fGame\fGame\bin\Debug\fGame.exe
+E:\Projects\MyProjects\Sharp\fGame\fGame\bin\Debug\fGame.pdb
+E:\Projects\MyProjects\Sharp\fGame\fGame\obj\x86\Debug\ResolveAssemblyReference.cache
+E:\Projects\MyProjects\Sharp\fGame\fGame\obj\x86\Debug\fGame.Form1.resources
+E:\Projects\MyProjects\Sharp\fGame\fGame\obj\x86\Debug\fGame.Properties.Resources.resources
+E:\Projects\MyProjects\Sharp\fGame\fGame\obj\x86\Debug\GenerateResource.read.1.tlog
+E:\Projects\MyProjects\Sharp\fGame\fGame\obj\x86\Debug\GenerateResource.write.1.tlog
+E:\Projects\MyProjects\Sharp\fGame\fGame\obj\x86\Debug\fGame.exe
+E:\Projects\MyProjects\Sharp\fGame\fGame\obj\x86\Debug\fGame.pdb
