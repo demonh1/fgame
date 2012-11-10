@@ -13,8 +13,8 @@ namespace fGame
     public partial class Form1 : Form
     {
 
-        public int i = 0;
-        public int j = 0;
+        public int numTask= 0;
+        public int numAnsw = 0;
 
 
         public string word;
@@ -118,7 +118,7 @@ namespace fGame
 
         private void btnnext_Click(object sender, EventArgs e)
         {
-            i++; j++;
+            numTask++; numAnsw++;
            
             startClick();
         }
