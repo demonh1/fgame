@@ -13,7 +13,7 @@ namespace fGame
     public partial class Form1 : Form
     {
 
-        public int numTask= 0;
+        public int numTask = 0;
         public int numAnsw = 0;
 
 
@@ -63,8 +63,8 @@ namespace fGame
         }
         private void startClick()
         {
-            textBoxTask.Text = q[i];
-            word = w[j];
+            textBoxTask.Text = q[numTask];
+            word = w[numAnsw];
             textBox2.Visible = true;
 
             for (int ii = 0; ii < word.Length; ii++)
