@@ -19,13 +19,7 @@ namespace fGame
         bool flagCheck = false;
         bool check = false;
 
-        // bool flagWord = false;
 
-
-        /// <summary>
-        /// 
-        /// 
-        /// </summary>
         Random rdn = new Random();
         int rnd = 0;
 
@@ -75,16 +69,14 @@ namespace fGame
         #region helper
         private void startClick()
         {
-            //////////////////////////////
-            //rnd = rdn.Next(0, 4);
+    
             int max = q.Length-1;
             rnd = rdn.Next(0, max);
             int tmp = rnd;
             textBoxTask.Text = q[rnd];
             word = w[rnd];
             ///////////////////////////////////
-            // textBoxTask.Text = q[numTask];
-            // word = w[numAnsw];
+
             textBoxInput.Visible = true;
 
             for (int ii = 0; ii < word.Length; ii++)
@@ -170,7 +162,7 @@ namespace fGame
                 if (textBoxInput.Text == null) { throw new Exception(); }
 
                 char ch = Convert.ToChar(textBoxInput.Text);
-                ///
+
                 sw.WriteLine("Введена буква: {0}", ch);
                 sw.Close();
 
@@ -228,37 +220,6 @@ namespace fGame
 
         private void btnnext_Click(object sender, EventArgs e)
         {
-            /////////////
-            //tb = new TextBox[10];
-            //for (int i = 0; i < 10; i++)
-            //{
-            //    tb[i] = new TextBox();
-            //    tb[i].Size = textBoxW.Size;
-            //    tb[i].Top = textBoxW.Top;
-            //    tb[i].Left = textBoxW.Left + i * 30;
-            //    tb[i].Parent = this;
-            //    tb[i].Visible = false;
-            //}
-            ////////////
-
-            //int max = q.Length;
-            //rnd = rdn.Next(0, max);
-            //int tmp = rnd;
-            //textBoxTask.Text = q[rnd];
-            //word = w[rnd];
-            ///////////////////////////////////
-
-            //textBoxInput.Visible = true;
-
-            //for (int i = 0; i < word.Length; i++)
-            //{
-            //    tb[i].Text = " ";
-            //    tb[i].Visible = true;
-            //    tb[i].ReadOnly = true;
-
-            //}
-            //textBoxInput.Focus();
-            //btnStart.Enabled = false;
             num = 0;
             startClick();
             btnNext.Enabled = false;
@@ -267,8 +228,6 @@ namespace fGame
             textBoxInput.ReadOnly = false;
             textBoxWord.Visible = false;
             f0.Delete();
-
-            ///////////////////////////////////////
 
         }
 
@@ -364,9 +323,6 @@ namespace fGame
             if (e.KeyChar != 8 && e.KeyChar != ' ' && !Char.IsLetter(e.KeyChar))
                 e.Handled = true;
         }
-
-       
-
 
 
     }
