@@ -51,13 +51,13 @@
             this.labelAutor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelAutor.Location = new System.Drawing.Point(40, 117);
             this.labelAutor.Name = "labelAutor";
-            this.labelAutor.Size = new System.Drawing.Size(109, 16);
+            this.labelAutor.Size = new System.Drawing.Size(169, 16);
             this.labelAutor.TabIndex = 1;
-            this.labelAutor.Text = "Автор:  demonh ";
+            this.labelAutor.Text = "Автор:   Alexandr Arkhipov";
             // 
             // btnAboutOK
             // 
-            this.btnAboutOK.Location = new System.Drawing.Point(184, 164);
+            this.btnAboutOK.Location = new System.Drawing.Point(186, 176);
             this.btnAboutOK.Name = "btnAboutOK";
             this.btnAboutOK.Size = new System.Drawing.Size(75, 23);
             this.btnAboutOK.TabIndex = 2;
@@ -71,9 +71,9 @@
             this.labelVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelVersion.Location = new System.Drawing.Point(40, 142);
             this.labelVersion.Name = "labelVersion";
-            this.labelVersion.Size = new System.Drawing.Size(129, 15);
+            this.labelVersion.Size = new System.Drawing.Size(109, 15);
             this.labelVersion.TabIndex = 3;
-            this.labelVersion.Text = "Версия: 1.0.0.1   2012";
+            this.labelVersion.Text = "Версия: 1.2   2012";
             // 
             // label1
             // 

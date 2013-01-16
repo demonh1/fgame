@@ -51,9 +51,9 @@
             this.labelRul.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelRul.Location = new System.Drawing.Point(32, 59);
             this.labelRul.Name = "labelRul";
-            this.labelRul.Size = new System.Drawing.Size(67, 16);
+            this.labelRul.Size = new System.Drawing.Size(59, 16);
             this.labelRul.TabIndex = 1;
-            this.labelRul.Text = "Про игру";
+            this.labelRul.Text = "Об игре";
             // 
             // label1
             // 

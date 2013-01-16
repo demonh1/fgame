@@ -39,7 +39,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBoxW = new System.Windows.Forms.TextBox();
             this.btnNext = new System.Windows.Forms.Button();
-            this.labelfullWord = new System.Windows.Forms.Label();
             this.textBoxWord = new System.Windows.Forms.TextBox();
             this.btnWV = new System.Windows.Forms.Button();
             this.btnFullW = new System.Windows.Forms.Button();
@@ -89,6 +88,7 @@
             this.textBoxInput.Name = "textBoxInput";
             this.textBoxInput.Size = new System.Drawing.Size(22, 20);
             this.textBoxInput.TabIndex = 11;
+            this.textBoxInput.TextChanged += new System.EventHandler(this.textBoxInput_TextChanged);
             this.textBoxInput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxInputOnKeyPress);
             // 
             // btnRun
@@ -112,12 +112,12 @@
             // 
             // textBoxTask
             // 
-            this.textBoxTask.Location = new System.Drawing.Point(17, 37);
+            this.textBoxTask.Location = new System.Drawing.Point(12, 27);
             this.textBoxTask.Multiline = true;
             this.textBoxTask.Name = "textBoxTask";
             this.textBoxTask.ReadOnly = true;
             this.textBoxTask.ShortcutsEnabled = false;
-            this.textBoxTask.Size = new System.Drawing.Size(323, 23);
+            this.textBoxTask.Size = new System.Drawing.Size(323, 46);
             this.textBoxTask.TabIndex = 0;
             // 
             // labelTask
@@ -151,18 +151,9 @@
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(75, 23);
             this.btnNext.TabIndex = 15;
-            this.btnNext.Text = "Next Game";
+            this.btnNext.Text = "Новая игра";
             this.btnNext.UseVisualStyleBackColor = true;
             this.btnNext.Click += new System.EventHandler(this.btnnext_Click);
-            // 
-            // labelfullWord
-            // 
-            this.labelfullWord.AutoSize = true;
-            this.labelfullWord.Location = new System.Drawing.Point(346, 198);
-            this.labelfullWord.Name = "labelfullWord";
-            this.labelfullWord.Size = new System.Drawing.Size(32, 13);
-            this.labelfullWord.TabIndex = 16;
-            this.labelfullWord.Text = "Ввод";
             // 
             // textBoxWord
             // 
@@ -170,6 +161,7 @@
             this.textBoxWord.Name = "textBoxWord";
             this.textBoxWord.Size = new System.Drawing.Size(134, 20);
             this.textBoxWord.TabIndex = 17;
+            this.textBoxWord.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxWordOnKeyPress);
             // 
             // btnWV
             // 
@@ -200,6 +192,7 @@
             this.menuStrip1.Size = new System.Drawing.Size(637, 24);
             this.menuStrip1.TabIndex = 20;
             this.menuStrip1.Text = "menuStrip1";
+           
             // 
             // helpToolStripMenuItem
             // 
@@ -228,9 +221,9 @@
             // 
             this.btnShowLog.Location = new System.Drawing.Point(377, 298);
             this.btnShowLog.Name = "btnShowLog";
-            this.btnShowLog.Size = new System.Drawing.Size(75, 23);
+            this.btnShowLog.Size = new System.Drawing.Size(94, 23);
             this.btnShowLog.TabIndex = 21;
-            this.btnShowLog.Text = "Show log";
+            this.btnShowLog.Text = "Показать лог";
             this.btnShowLog.UseVisualStyleBackColor = true;
             this.btnShowLog.Click += new System.EventHandler(this.btnShowLog_Click);
             // 
@@ -262,7 +255,6 @@
             this.Controls.Add(this.btnFullW);
             this.Controls.Add(this.btnWV);
             this.Controls.Add(this.textBoxWord);
-            this.Controls.Add(this.labelfullWord);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.textBoxW);
             this.Controls.Add(this.labelword);
@@ -299,7 +291,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox textBoxW;
         private System.Windows.Forms.Button btnNext;
-        private System.Windows.Forms.Label labelfullWord;
         private System.Windows.Forms.TextBox textBoxWord;
         private System.Windows.Forms.Button btnWV;
         private System.Windows.Forms.Button btnFullW;

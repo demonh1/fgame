@@ -8,13 +8,17 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 
+/*
+    * Game Wheel of Fortune. 
+    * @autor Arkhipov A. 
+                                  */
+
 namespace fGame
 {
     public partial class FormGame : Form
     {
 
-        public int numTask = 0;
-        public int numAnsw = 0;
+        public int nAttemps = 0;
         public int num = 0;
         bool flagCheck = false;
         bool check = false;
@@ -32,6 +36,7 @@ namespace fGame
 
         public TextBox[] tb;
 
+        // constructor
         public FormGame()
         {
             InitializeComponent();
@@ -40,21 +45,23 @@ namespace fGame
         #region  FormGame load
         private void FormGame_Load(object sender, EventArgs e)
         {
-            tb = new TextBox[10];
+            tb = new TextBox[10];  
+            //  задание параметров для ввода буквы в цикле
             for (int i = 0; i < 10; i++)
             {
-                tb[i] = new TextBox();
+                tb[i] = new TextBox(); 
                 tb[i].Size = textBoxW.Size;
                 tb[i].Top = textBoxW.Top;
                 tb[i].Left = textBoxW.Left + i * 30;
                 tb[i].Parent = this;
                 tb[i].Visible = false;
             }
+            //делаем скрытыми по умолчанию поля формы
             textBoxW.Visible = false;
             textBoxInput.Visible = false;
             textBoxWord.Visible = false;
             richTextBoxLog.Visible = false;
-            //////////////////////////
+            //делаем активными либо не активными кнопки формы
             btnStart.Enabled = true;
             btnRun.Enabled = false;
             btnNext.Enabled = false;
@@ -67,16 +74,14 @@ namespace fGame
         #endregion
 
         #region helper
-        private void startClick()
+        private void startClick() //инициализация начала игры
         {
-    
             int max = q.Length-1;
             rnd = rdn.Next(0, max);
             int tmp = rnd;
             textBoxTask.Text = q[rnd];
             word = w[rnd];
-            ///////////////////////////////////
-
+           
             textBoxInput.Visible = true;
 
             for (int ii = 0; ii < word.Length; ii++)
@@ -90,8 +95,15 @@ namespace fGame
             btnRun.Enabled = true;
             
         }
+        private void folEntryLog() {
+            StreamWriter sw = f.AppendText();
 
-        protected void checkFullWord()
+            sw.WriteLine("/////////////////");
+            sw.WriteLine("Задание. {0}", q[rnd]);
+            sw.Close();
+        }
+
+        protected void checkFullWord() //проверка угадано ли слово по буквам
         {
 
             StreamWriter sw = f.AppendText();
@@ -100,6 +112,7 @@ namespace fGame
             if (flagCheck == true)
             {
                 sw.WriteLine("Слово угадано по буквам");
+                sw.WriteLine("Число ходов: {0}", nAttemps);
                 sw0.WriteLine("Слово угадано по буквам");
                 sw0.Close();
                 sw.Close();
@@ -107,7 +120,7 @@ namespace fGame
 
         }
 
-        private void writeAttemptLog()
+        private void writeAttemptLog() //запись угаданных букв в лог
         {
 
             StreamWriter sw = f.AppendText();
@@ -126,20 +139,17 @@ namespace fGame
             //sw0.Close();
             //sw.Close();
 
-
         }
 
         #endregion
-
+        
         #region clicks
-
+        //обработка нажатий кнопок
         private void btnstart_Click(object sender, EventArgs e)
         {
             startClick();
-            StreamWriter sw = f.AppendText();
-
-            sw.WriteLine("/////////////////");
-            sw.Close();
+            folEntryLog();
+            btnWV.Enabled = true;
 
         }
 
@@ -162,6 +172,9 @@ namespace fGame
                 if (textBoxInput.Text == null) { throw new Exception(); }
 
                 char ch = Convert.ToChar(textBoxInput.Text);
+                ///
+
+                nAttemps++;
 
                 sw.WriteLine("Введена буква: {0}", ch);
                 sw.Close();
@@ -180,9 +193,7 @@ namespace fGame
                         check = true;
                         writeAttemptLog();
                         check = false;
-
                     }
-
 
                 }
 
@@ -190,10 +201,9 @@ namespace fGame
                 //  if (check == false )
                 //  writeAttemptLog();
 
-
             }
 
-            catch (Exception ex)
+            catch (Exception )
             {
                 sw.WriteLine("Ошибка: буква не введена или было введено сразу несколько букв");
                 sw.Close();
@@ -210,7 +220,7 @@ namespace fGame
                 flagCheck = true;
                 checkFullWord();
 
-                MessageBox.Show("Winner");
+                MessageBox.Show("Победитель");
                 btnWV.Enabled = false;
             }
 
@@ -220,10 +230,16 @@ namespace fGame
 
         private void btnnext_Click(object sender, EventArgs e)
         {
+
             num = 0;
+            nAttemps = 0;
+
             startClick();
+            folEntryLog();
+            
             btnNext.Enabled = false;
             btnFullW.Enabled = false;
+            btnWV.Enabled = true;
             btnShowLog.Enabled = false;
             textBoxInput.ReadOnly = false;
             textBoxWord.Visible = false;
@@ -236,7 +252,8 @@ namespace fGame
             textBoxWord.Visible = true;
             btnFullW.Enabled = true;
             btnRun.Enabled = false;
-           // btnNext.Enabled = false;
+          
+            btnShowLog.Enabled = true;
             textBoxInput.ReadOnly = true;
             textBoxWord.ReadOnly = false;
             textBoxWord.Text = "";
@@ -264,13 +281,14 @@ namespace fGame
 
             if (textBoxWord.Text == word)
             {
-                MessageBox.Show("Winner");
+                MessageBox.Show("Победитель");
                 for (int i = 0; i < word.Length; i++)
                 {
                     tb[i].Text = word[i].ToString();
                 }
 
                 sw.WriteLine("Слово названо целиком");
+                sw.WriteLine("Число ходов: {0}", nAttemps);
                 sw0.WriteLine("Слово названо целиком");
                 sw0.Close();
                 sw.Close();
@@ -280,10 +298,11 @@ namespace fGame
             else
             {
                 sw.WriteLine("Проигрыш");
+                sw.WriteLine("Число ходов: {0}",nAttemps);
                 sw0.WriteLine("Проигрыш");
                 sw0.Close();
                 sw.Close();
-                MessageBox.Show("Luser");
+                MessageBox.Show("Неудачник! Обидно, да?");
             }
 
             textBoxWord.ReadOnly = true;
@@ -305,13 +324,13 @@ namespace fGame
 
         private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormAbout about = new FormAbout();
+            FormAbout about = new FormAbout();  //обработка нажатия пункта меню О программе
             about.Show();
         }
 
         private void RuleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormRule rule = new FormRule();
+            FormRule rule = new FormRule(); //обработка нажатия пункта меню Правила игры
             rule.Show();
         }
 
@@ -320,10 +339,28 @@ namespace fGame
         private void textBoxInputOnKeyPress(object sender, KeyPressEventArgs e)
         {
 
+            if (e.KeyChar != 8 && e.KeyChar != ' ' && !Char.IsLetter(e.KeyChar) )
+                e.Handled = true;
+        }
+
+        private void textBoxInput_TextChanged(object sender, EventArgs e)
+        {
+            textBoxInput.Text = System.Text.RegularExpressions.Regex.Replace(textBoxInput.Text, @"[^а-я]", " ");
+            
+           
+        }
+
+        private void textBoxWordOnKeyPress(object sender, KeyPressEventArgs e)
+        {
             if (e.KeyChar != 8 && e.KeyChar != ' ' && !Char.IsLetter(e.KeyChar))
                 e.Handled = true;
         }
 
+      
+
+        
+
+        
 
     }
 
