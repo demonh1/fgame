@@ -109,7 +109,7 @@ namespace fGame
             StreamWriter sw = f.AppendText();
             StreamWriter sw0 = f0.AppendText();
 
-            if (flagCheck == true)
+            if (flagCheck)
             {
                 sw.WriteLine("Слово угадано по буквам");
                 sw.WriteLine("Число ходов: {0}", nAttemps);
@@ -126,7 +126,7 @@ namespace fGame
             StreamWriter sw = f.AppendText();
             StreamWriter sw0 = f0.AppendText();
 
-            if (check == true)
+            if (check)
             {
                 sw.WriteLine("Буква угадана");
                 sw0.WriteLine("Буква угадана");
@@ -172,8 +172,7 @@ namespace fGame
                 if (textBoxInput.Text == null) { throw new Exception(); }
 
                 char ch = Convert.ToChar(textBoxInput.Text);
-                ///
-
+               
                 nAttemps++;
 
                 sw.WriteLine("Введена буква: {0}", ch);
@@ -198,7 +197,7 @@ namespace fGame
                 }
 
                 textBoxInput.Text = "";
-                //  if (check == false )
+                //  if (!check)
                 //  writeAttemptLog();
 
             }
@@ -210,7 +209,7 @@ namespace fGame
                 sw0.WriteLine("Ошибка: буква не введена или было введено сразу несколько букв");
                 sw0.Close();
                 MessageBox.Show("Сначала нужно ввести одну букву", "Ошибка",
-        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
@@ -274,7 +273,7 @@ namespace fGame
                 sw.Close();
 
                 MessageBox.Show("Сначала нужно ввести слово", "Ошибка",
-       MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
 
             }
@@ -355,15 +354,8 @@ namespace fGame
             if (e.KeyChar != 8 && e.KeyChar != ' ' && !Char.IsLetter(e.KeyChar))
                 e.Handled = true;
         }
-
-      
-
         
-
-        
-
     }
-
 
 }
 
